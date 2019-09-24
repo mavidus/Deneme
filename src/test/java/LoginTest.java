@@ -32,6 +32,14 @@ public class LoginTest {
      
     }
     @Test
+    public void NegativeLoginTest1(){
+        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx");
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
+        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("invalid" + Keys.ENTER);
+        String errorMsg=driver.findElement(By.id("ctl00_MainContent_status")).getText();
+        Assert.assertEquals(errorMsg, "Invalid Login or Password.");
+    }
+    @Test
     public void logOutTest() {
         driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
