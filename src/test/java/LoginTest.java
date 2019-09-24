@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,5 +30,8 @@ public class LoginTest {
         Assert.assertEquals(driver.getTitle(), "Web Orders");
         driver.findElement(By.id("ctl00_logout")).click();
     }
-
+    @AfterMethod
+    public void LogoutTest(){
+        driver.close();
+    }
 }
