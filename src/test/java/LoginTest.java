@@ -27,9 +27,9 @@ public class LoginTest {
         driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test" + Keys.ENTER);
-
-        Assert.assertEquals(driver.getTitle(), "Web Orders");
-        driver.findElement(By.id("ctl00_logout")).click();
+        String title= driver.getTitle();
+        Assert.assertEquals(title, "Web Orders");
+     
     }
     @Test
     public void logOutTest() {
