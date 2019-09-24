@@ -40,7 +40,6 @@ public class LoginTest {
 
     }
 
-
     @AfterMethod
     public void LogoutTest(){
         driver.close();
